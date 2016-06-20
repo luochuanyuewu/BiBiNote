@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Note;
+use App\Tag;
+use App\User;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        //返回当前用户的所有笔记
+        $notes = $user->notes->all();
+//        return $notes;
+        return view('home',compact('notes'));
     }
 }
