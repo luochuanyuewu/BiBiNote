@@ -24,4 +24,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 一个user拥有多个note
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function notes()
+    {
+        return $this->hasMany('App\Note', 'user_id', 'id');
+    }
+
+    /**
+     * 一个user拥有多个tag
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tags()
+    {
+        return $this->hasMany('App\Tag', 'user_id', 'id');
+    }
 }
