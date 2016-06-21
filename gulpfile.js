@@ -18,7 +18,8 @@ elixir(function(mix) {
         'bootstrap-theme.css',
         'font-awesome.css',
         'metisMenu.css',
-        'sb-admin-2.css'
+        'sb-admin-2.css',
+        'timeline.css'
 
     ], './public/css/libs.css');
 

@@ -32,7 +32,9 @@ class HomeController extends Controller
         $user = Auth::user();
         //返回当前用户的所有笔记
         $notes = $user->notes->all();
+
+        $inverted = false;
 //        return $notes;
-        return view('home',compact('notes'));
+        return view('users.index',compact('notes'));
     }
 }
