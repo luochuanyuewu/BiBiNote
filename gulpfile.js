@@ -16,11 +16,17 @@ elixir(function(mix) {
     mix.styles([
         'bootstrap.css',
         'bootstrap-theme.css',
-        'font-awesome.css'
+        'font-awesome.css',
+        'metisMenu.css',
+        'sb-admin-2.css'
+
     ], './public/css/libs.css');
 
     mix.scripts([
         'jquery.js',
-        'bootstrap.js'
+        'bootstrap.js',
+        'metisMenu.js',
+        'sb-admin-2'
+
     ], './public/js/libs.js')
 });
