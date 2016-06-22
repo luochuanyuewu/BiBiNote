@@ -33,7 +33,6 @@ class HomeController extends Controller
         //返回当前用户的所有笔记
         $notes = $user->notes->all();
 
-        $inverted = false;
 //        return $notes;
         return view('users.index',compact('notes'));
     }

@@ -45,7 +45,10 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">记事</a></li>
+                <li><a href="{{route('note.index')}}">记事</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="{{route('tag.index')}}">分类</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -70,7 +73,12 @@
     </div>
 </nav>
 
-@yield('content')
+
+<div class="col-lg-10 col-lg-offset-1">
+    @yield('content')
+</div>
+
+
 
 {{--载入要需要的的所有js脚本--}}
 <script src="{{asset('js/libs.js')}}"></script>

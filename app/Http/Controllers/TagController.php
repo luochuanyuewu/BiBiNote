@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Note;
-use App\User;
+use App\Tag;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
-class NoteController extends Controller
+class TagController extends Controller
 {
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,12 +27,10 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        //返回当前用户的所有笔记
-        $notes = $user->notes->all();
+        $tags = Auth::user()->tags->all();
+//        return $tags;
+        return view('tags.index',compact('tags'));
 
-//        return $notes;
-        return view('notes.index',compact('notes'));
     }
 
     /**
@@ -46,12 +51,15 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        $input = $input + ['user_id'=>Auth::user()->id];
+        $tags = Auth::user()->tags->all();
+        foreach ($tags as $tag)
+        {
+            if($tag->name == trim($request->name))
+                return redirect('tag');
+        }
+        Tag::create(['name'=>$request->name,'user_id'=>Auth::user()->id]);
 
-        Note::create($input);
-//        return $input;
-        return redirect(route('note.index'));
+        return redirect('tag');
     }
 
     /**
@@ -73,9 +81,7 @@ class NoteController extends Controller
      */
     public function edit($id)
     {
-        $note = Auth::user()->notes()->where('id', $id)->first();
-//        return $note;
-        return view('notes.edit', compact('note'));
+        //
     }
 
     /**
@@ -87,11 +93,7 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $note = Auth::user()->notes()->where('id', $id)->first();
-        $note->update($request->all());
-
-//        return $request->all();
-        return redirect('note');
+        //
     }
 
     /**
@@ -102,28 +104,6 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        $note = Auth::user()->notes()->where('id', $id)->first();
-        if($note)
-            $note->delete();
-        else
-            return '你正在操作的资源不属于你或者不存在,所以你无法执行此操作';
-        return redirect('note');
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function delete($id)
-    {
-        $note = Auth::user()->notes()->where('id', $id)->first();
-        $note->delete();
-//        return $note;
-
-        return redirect('/home');
-
+        //
     }
 }
