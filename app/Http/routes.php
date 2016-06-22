@@ -15,7 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/readme', function () {
+    return view('readme');
+});
+
 Route::auth();
+
+
 
 //Route::get('/home', 'HomeController@index');
 
@@ -34,13 +40,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('note/destroy/{id}',['as'=>'note.destroy','uses'=>"NoteController@destroy"]);
 
     //Tag相关的route
-    Route::get('tag',['as'=>'tag.index','uses'=>"TagController@index"]);
-    Route::get('tag/show/{id}',['as'=>'tag.show','uses'=>"TagController@show"]);
-    Route::get('tag/create',['as'=>'tag.create','uses'=>"TagController@create"]);
-    Route::get('tag/edit/{id}',['as'=>'tag.edit','uses'=>"TagController@edit"]);
+    Route::get('category',['as'=>'category.index','uses'=>"CategoryController@index"]);
+    Route::get('category/show/{id}',['as'=>'category.show','uses'=>"CategoryController@show"]);
+    Route::get('category/create',['as'=>'category.create','uses'=>"CategoryController@create"]);
+    Route::get('category/edit/{id}',['as'=>'category.edit','uses'=>"CategoryController@edit"]);
 
-    Route::post('tag/store',['as'=>'tag.store','uses'=>"TagController@store"]);
-    Route::patch('tag/update/{id}',['as'=>'tag.update','uses'=>"TagController@update"]);
+    Route::post('category/store',['as'=>'category.store','uses'=>"CategoryController@store"]);
+    Route::patch('category/update/{id}',['as'=>'category.update','uses'=>"CategoryController@update"]);
 
-    Route::get('tag/destroy/{id}',['as'=>'tag.destroy','uses'=>"TagController@destroy"]);
+    Route::get('category/destroy/{id}',['as'=>'category.destroy','uses'=>"CategoryController@destroy"]);
+
 });

@@ -4,13 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Category extends Model
 {
-    protected $table = 'tags';
-    protected $fillable = ['user_id','name'];
+    protected $table = 'categories';
+    protected $fillable = ['user_id', 'name'];
+
 
     /**
-     * 一个tag属于一个user
+     * 一个category属于一个user
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function user()
@@ -18,12 +19,13 @@ class Tag extends Model
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
+
     /**
-     * 一个tag属于多个note
+     * 一个category属于多个note
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function notes()
     {
-        return $this->belongsToMany('App\Note');
+        return $this->hasMany('App\Note');
     }
 }

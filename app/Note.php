@@ -9,7 +9,7 @@ class Note extends Model
     //所关联的表名
     protected $table = 'notes';
     //可以被赋值的字段
-    protected $fillable = ['user_id', 'title', 'content'];
+    protected $fillable = ['user_id', 'pic_id', 'category_id','title', 'content'];
 
 
     /**
@@ -22,17 +22,14 @@ class Note extends Model
     }
 
 
-
     /**
-     * 一个note属于多个tag
+     * 一个note属于一个category
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function tags()
+    public function category()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsTo('App\Category','category_id','id');
     }
-
-
 
 
 }

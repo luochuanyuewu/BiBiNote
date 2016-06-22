@@ -39,8 +39,8 @@ class User extends Authenticatable
      * 一个user拥有多个tag
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function tags()
+    public function categories()
     {
-        return $this->hasMany('App\Tag', 'user_id', 'id');
+        return $this->hasMany('App\Category', 'user_id', 'id');
     }
 }

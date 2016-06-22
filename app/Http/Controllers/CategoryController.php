@@ -2,24 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Tag;
+use App\Category;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
-class TagController extends Controller
+class CategoryController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +18,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Auth::user()->tags->all();
+        $categories = Auth::user()->categories->all();
 //        return $tags;
-        return view('tags.index',compact('tags'));
+        return view('categories.index',compact('categories'));
 
     }
 
@@ -49,17 +40,17 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\CreateCategoryRequest $request)
     {
-        $tags = Auth::user()->tags->all();
-        foreach ($tags as $tag)
+        $categories = Auth::user()->categories->all();
+        foreach ($categories as $category)
         {
-            if($tag->name == trim($request->name))
-                return redirect('tag');
+            if($category->name == trim($request->name))
+                return redirect('category');
         }
-        Tag::create(['name'=>$request->name,'user_id'=>Auth::user()->id]);
+        Category::create(['name'=>$request->name,'user_id'=>Auth::user()->id]);
 
-        return redirect('tag');
+        return redirect('category');
     }
 
     /**
@@ -70,7 +61,9 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $notes = Auth::user()->notes()->where('id',$id)->orderBy('created_at','desc')->get();
+
+        return $notes;
     }
 
     /**
@@ -106,4 +99,7 @@ class TagController extends Controller
     {
         //
     }
+
+    
+
 }

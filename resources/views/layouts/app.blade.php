@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>初心笔记——您生活中的小助手</title>
+    <title>爱哔哔,爱生活——您生活中的吐槽小助手</title>
     {{--载入所需要的所有css样式--}}
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
@@ -17,6 +17,30 @@
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        a{
+            text-decoration:none;
+            color: black;
+        }
+        a:link{
+            text-decoration:none;
+            color: black;
+        }
+        a:visited{
+            text-decoration:none;
+            color: black;
+
+        }
+        a:hover{
+            text-decoration:none;
+            color: black;
+
+        }
+        a:active{
+            text-decoration:none;
+            color: black;
+
         }
     </style>
 </head>
@@ -38,17 +62,16 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                初心笔记
+                爱哔哔——》
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{route('note.index')}}">记事</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="{{route('tag.index')}}">分类</a></li>
+                <li><a href="{{route('note.index')}}"><i class="fa fa-sticky-note"></i>哔哔</a></li>
+                <li><a href="{{route('category.index')}}"><i class="fa fa-tag"></i>分类</a></li>
+                <li><a href="{{url('/readme')}}"><i class="fa fa-lightbulb-o"></i>必读</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -62,8 +85,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i>账号</a></li>
+
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>退出</a></li>
                         </ul>
                     </li>
