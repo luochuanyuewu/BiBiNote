@@ -22,6 +22,7 @@ class NoteController extends Controller
     {
         $user = Auth::user();
         //返回当前用户的所有笔记
+//        $notes = Note::all('user_id');
         $notes = $user->notes->all();
 
 //        return $notes;

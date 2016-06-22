@@ -19,7 +19,8 @@ elixir(function(mix) {
         'font-awesome.css',
         'metisMenu.css',
         'sb-admin-2.css',
-        'timeline.css'
+        'timeline.css',
+        'w3.css'
 
     ], './public/css/libs.css');
 
