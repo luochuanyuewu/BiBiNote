@@ -17,6 +17,7 @@ class CreateNotesTable extends Migration
             $table->integer('user_id')->unsiged()->index();
             $table->integer('pic_id')->unsiged();
             $table->integer('category_id')->unsiged();
+            $table->integer('is_public')->default(1);
             $table->string('title');
             $table->text('content');
             $table->timestamps();

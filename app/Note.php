@@ -9,8 +9,7 @@ class Note extends Model
     //所关联的表名
     protected $table = 'notes';
     //可以被赋值的字段
-    protected $fillable = ['user_id', 'pic_id', 'category_id','title', 'content'];
-
+    protected $fillable = ['user_id', 'pic_id', 'category_id','is_public','title', 'content'];
 
     /**
      * 一个note属于一个user

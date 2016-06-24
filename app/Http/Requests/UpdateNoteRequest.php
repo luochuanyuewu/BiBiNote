@@ -24,9 +24,16 @@ class UpdateNoteRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
+            'title' => 'required|max:10',
             'content' => 'required',
-            'category_id' =>'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required'=>'本宝宝不允许你不写标题',
+            'title.max'=>'本宝宝不允许标题太长',
         ];
     }
 }

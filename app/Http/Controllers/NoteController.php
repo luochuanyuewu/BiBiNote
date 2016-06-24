@@ -28,19 +28,8 @@ class NoteController extends Controller
         $notes = $user->notes()->orderBy('created_at', 'desc')->get();
 
         $categories = Auth::user()->categories()->lists('name', 'id')->all();
-
 //        return $notes;
-        return view('notes.index', compact('notes', 'categories'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('notes.index', compact('notes', 'categories','user'));
     }
 
     /**
@@ -59,17 +48,6 @@ class NoteController extends Controller
 
 //        return $input;
         return redirect(route('note.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -117,6 +95,29 @@ class NoteController extends Controller
             Session::flash('deleted_note', '吐槽删除成功!');
         } else
             return '你正在操作的资源不属于你或者不存在,所以你无法执行此操作';
+        return redirect('note');
+
+    }
+
+
+    public function setPublic($id)
+    {
+        //找到对应的note
+        $note = Auth::user()->notes()->where('id',$id)->first();
+
+//        return $note;
+        if(!$note)
+            return '你正在操作的资源不属于你或者不存在,所以你无法执行此操作';
+
+        if($note->is_public == 1)
+        {
+            $note->update(['is_public'=>0]);
+        }
+        else
+        {
+            $note->update(['is_public'=>1]);
+        }
+
         return redirect('note');
 
     }

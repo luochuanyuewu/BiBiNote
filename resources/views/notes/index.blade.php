@@ -5,19 +5,25 @@
     @if(Session::has('deleted_note'))
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
-                <p class="bg-danger" >{{session('deleted_note')}}</p>
+                <p class="bg-danger">{{session('deleted_note')}}</p>
             </div>
         </div>
     @elseif(Session::has('updated_note'))
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
-                <p class="bg-danger" >{{session('updated_note')}}</p>
+                <p class="bg-danger">{{session('updated_note')}}</p>
             </div>
         </div>
     @elseif(Session::has('created_note'))
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
-                <p class="bg-danger" >{{session('created_note')}}</p>
+                <p class="bg-danger">{{session('created_note')}}</p>
+            </div>
+        </div>
+    @elseif(Session::has('updated_user'))
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <p class="bg-danger">{{session('updated_user')}}</p>
             </div>
         </div>
     @endif
@@ -33,10 +39,9 @@
 
 
     {{--所有note--}}
-    <!-- 列出所有记录 -->
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
+            <div class="panel panel-warning">
                 <div class="panel-heading">
                     <i class="fa fa-clock-o fa-fw"></i> 你的哔哔记录
                     <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal"
@@ -45,19 +50,23 @@
 
                 </div>
                 <div class="panel-body">
-                    @if(count($notes))
+                    @if(count($notes) and $user)
                         <ul class="timeline">
 
                             <?php $invert = false; ?>
                             @foreach($notes as $note)
-                                <li class="{{$invert?'timeline-inverted':''}}">
-                                    <div class="timeline-badge"><img height="50" width="50" class="img-responsive img-thumbnail img-rounded img-circle"
-                                                                     style="margin: 2px" src= "{{url('images/defaultavatar.jpg')}}" >
+                                <li class="{{$invert?'timeline-inverted w3-animate-left':'w3-animate-right'}}">
+
+                                    <div class="timeline-badge w3-spin"><img height="50" width="50"
+                                                                             class="img-responsive img-thumbnail img-rounded img-circle"
+                                                                             style="margin: 2px"
+                                                                             src="{{$user->avatar?$user->avatar->path:url('images/defaultavatar.jpg')}}">
                                         {{--<i class="fa fa-check"></i>--}}
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title"><i class="fa fa-sticky-note"></i> {{$note->title}}</h4>
+                                            <h4 class="timeline-title"><i
+                                                        class="fa fa-sticky-note"></i> {{$note->title}}</h4>
 
                                         </div>
                                         <br>
@@ -73,13 +82,12 @@
                                             </small>
                                         </p>
                                         <div class="btn-group pull-right ">
-                                            <a href="{{route('note.edit',$note->id)}}">
+                                            <a href="{{route('note.setPublic',$note->id)}}">
                                                 <button type="button" class="btn btn-default btn-xs">
-                                                    <i class="fa fa-eye"></i>
-                                                    {{--<i class="fa fa-eye-slash"></i>--}}
+                                                    <i class="fa {{$note->is_public?'fa-eye':'fa-eye-slash'}}"></i>
                                                 </button>
                                             </a>
-                                            <a href="{{route('note.edit',$note->id)}}">
+                                            <a href="{{route('category.show',$note->category_id)}}">
                                                 <button type="button" class="btn btn-default btn-xs">
                                                     <i class="fa fa-tag"></i>
                                                 </button>
@@ -133,6 +141,11 @@
                     <div class="form-group">
                         {!! Form::label('category_id','哔哔分类:') !!}
                         {!! Form::select('category_id',[''=>'选择一个分类'] + $categories,null,['class'=>'form-control']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('is_public','是否公开:') !!}
+                        {!! Form::select('is_public',[0=>'不公开',1=>'公开'],'不公开',['class'=>'form-control']) !!}
                     </div>
 
                     <div class="form-group">

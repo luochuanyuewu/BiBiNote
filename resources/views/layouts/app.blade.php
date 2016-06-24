@@ -45,9 +45,9 @@
     </style>
 </head>
 
-<body id="app-layout">
+<body id="app-layout" class="w3-light-blue">
 
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top" >
     <div class="container">
         <div class="navbar-header">
 
@@ -69,7 +69,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{route('note.index')}}"><i class="fa fa-sticky-note"></i>哔哔</a></li>
+                <li><a href="{{route('note.index')}}"><i class="fa fa-sticky-note "></i>哔哔</a></li>
                 <li><a href="{{route('category.index')}}"><i class="fa fa-tag"></i>分类</a></li>
                 <li><a href="{{url('/readme')}}"><i class="fa fa-lightbulb-o"></i>必读</a></li>
             </ul>
@@ -86,7 +86,8 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i>账号</a></li>
+{{--                            <li><a href="{{ route('user.show',Auth::user()->id)}}"><i class="fa fa-btn fa-user"></i>资料</a></li>--}}
+                            <li><a href="{{ route('user.edit')}}"><i class="fa fa-btn fa-gear"></i>设置</a></li>
 
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>退出</a></li>
                         </ul>

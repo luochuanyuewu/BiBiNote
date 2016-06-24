@@ -12,12 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $notes =  \App\Note::where('is_public',1)->orderBy('created_at', 'desc')->get();
+
+    return view('welcome',compact('notes'));
 });
 
 Route::get('/readme', function () {
     return view('readme');
 });
+
+
+Route::get('user/show/{id}',['as'=>'user.show','uses'=>"UserController@show"]);
 
 Route::auth();
 
@@ -30,9 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
     //Note相关的route
 
     Route::get('note',['as'=>'note.index','uses'=>"NoteController@index"]);
-    Route::get('note/show/{id}',['as'=>'note.show','uses'=>"NoteController@show"]);
-    Route::get('note/create',['as'=>'note.create','uses'=>"NoteController@create"]);
     Route::get('note/edit/{id}',['as'=>'note.edit','uses'=>"NoteController@edit"]);
+    Route::get('note/setPublic/{id}',['as'=>'note.setPublic','uses'=>"NoteController@setPublic"]);
 
     Route::post('note/store',['as'=>'note.store','uses'=>"NoteController@store"]);
     Route::patch('note/update/{id}',['as'=>'note.update','uses'=>"NoteController@update"]);
@@ -42,12 +46,12 @@ Route::group(['middleware' => ['auth']], function () {
     //Tag相关的route
     Route::get('category',['as'=>'category.index','uses'=>"CategoryController@index"]);
     Route::get('category/show/{id}',['as'=>'category.show','uses'=>"CategoryController@show"]);
-    Route::get('category/create',['as'=>'category.create','uses'=>"CategoryController@create"]);
-    Route::get('category/edit/{id}',['as'=>'category.edit','uses'=>"CategoryController@edit"]);
-
     Route::post('category/store',['as'=>'category.store','uses'=>"CategoryController@store"]);
-    Route::patch('category/update/{id}',['as'=>'category.update','uses'=>"CategoryController@update"]);
-
     Route::get('category/destroy/{id}',['as'=>'category.destroy','uses'=>"CategoryController@destroy"]);
+
+
+    //User相关的route
+    Route::get('user/edit',['as'=>'user.edit','uses'=>"UserController@edit"]);
+    Route::patch('user/update',['as'=>'user.update','uses'=>"UserController@update"]);
 
 });

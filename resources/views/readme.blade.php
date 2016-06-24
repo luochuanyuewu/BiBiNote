@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container w3-animate-zoom">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
+                <div class="panel panel-danger">
                     <div class="panel-heading">说明</div>
 
                     <div class="panel-body">
