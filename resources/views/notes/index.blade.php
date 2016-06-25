@@ -145,7 +145,7 @@
                     {!! Form::close() !!}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-info btn-xs" data-dismiss="modal">关闭</button>
                 </div>
             </div>
 
