@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="">
                 <div class="panel panel-info">
                     <div class="panel-heading">欢迎</div>
 
@@ -17,8 +16,8 @@
 
         {{--所有note--}}
         <div class="row ">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-success">
+            <div class="">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <i class="fa fa-clock-o fa-fw"></i> 这些人在哔哔
                     </div>
@@ -67,6 +66,4 @@
                 </div>
             </div>
         </div>
-
-    </div>
 @endsection

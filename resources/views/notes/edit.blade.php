@@ -2,11 +2,10 @@
 
 @section('content')
 
-
     @if($note)
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <div class="panel panel-default">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <i class="fa fa-clock-o fa-fw"></i> 编辑你的哔哔内容
                     </div>
@@ -30,7 +29,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::submit('更新笔记',['class'=>'btn btn-default btn-block col-sm-6']) !!}
+                            {!! Form::submit('更新笔记',['class'=>'btn btn-info btn-block col-sm-6']) !!}
                         </div>
 
                         {!! Form::close() !!}
@@ -39,12 +38,11 @@
                     </div>
                 </div>
             </div>
-
         </div>
     @endif
 
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-8 col-md-offset-2">
             {{--载入显示错误的界面--}}
             @include('includes.form_error')
         </div>

@@ -51,7 +51,6 @@
     <div class="container">
         <div class="navbar-header">
 
-            <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#app-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
@@ -60,14 +59,12 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 爱哔哔——》
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{route('note.index')}}"><i class="fa fa-sticky-note "></i>哔哔</a></li>
                 <li><a href="{{route('category.index')}}"><i class="fa fa-tag"></i>分类</a></li>
@@ -99,8 +96,8 @@
 </nav>
 
 
-<div class="col-lg-10 col-lg-offset-1">
-    @yield('content')
+<div class="container ">
+            @yield('content')
 </div>
 
 

@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
-
     @if($user)
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <div class="panel panel-default">
+            <div class="w3-animate-zoom">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <i class="fa fa-info-circle fa-fw"></i> 编辑你的帐户资料
                     </div>
@@ -40,7 +38,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::submit('更新帐户',['class'=>'btn btn-default btn-block']) !!}
+                            {!! Form::submit('更新帐户',['class'=>'btn btn-info btn-block']) !!}
                         </div>
 
                         {!! Form::close() !!}
@@ -54,7 +52,7 @@
     @endif
 
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="">
             {{--载入显示错误的界面--}}
             @include('includes.form_error')
         </div>
