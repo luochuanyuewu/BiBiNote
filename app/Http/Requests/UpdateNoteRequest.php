@@ -34,6 +34,7 @@ class UpdateNoteRequest extends Request
         return [
             'title.required'=>'本宝宝不允许你不写标题',
             'title.max'=>'本宝宝不允许标题太长',
+            'content.required'=>"本宝宝不允许你不写内容"
         ];
     }
 }
