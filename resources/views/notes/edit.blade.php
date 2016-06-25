@@ -42,7 +42,7 @@
     @endif
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="">
             {{--载入显示错误的界面--}}
             @include('includes.form_error')
         </div>
