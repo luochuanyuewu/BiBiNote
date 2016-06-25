@@ -1,27 +1,33 @@
-# Laravel PHP Framework
+# BiBiNote
+BiBiNote是一个类似微博的帖子记录分享网站。
+用户登录注册后可以发表帖子,并设置是否公开,可以设置分类查看自己的帖子,并对自己对帖子进行增删改查
+管理,公开的帖子所有游客都能看到。
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+用途:可以用于记录笔记,或者心情分享
+## 安装指南
+工程使用Laravel 5.2制作并运行于php环境,所以确保你对电脑上安装了node.js npm安装全局gulp 以及composer。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+1.克隆此仓库到本地
 
-## Official Documentation
+2.cd到工程根目录,命令行下执行composer install 和npm install。
+
+3.将.env.example命名为.env并在此文件中配置好数据库对信息和密码
+
+4.数据库迁移,执行php artisan migrate即可将所有数据库迁移生成到你制定对数据库中。
+
+5.然后你就有了自己的BiBiNote系统了
 
 Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+## 一起参与
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+欢迎各位共同参与此项目的开发
 
-## Security Vulnerabilities
+我的官网是: luochuanyuewu.com
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+我的邮箱是: luochuanyuewu@gmail.com
 
-## License
+## 许可
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+BiBiNote处于 [MIT license](http://opensource.org/licenses/MIT)协议之下。
