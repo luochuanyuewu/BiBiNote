@@ -22,8 +22,8 @@ class UserController extends Controller
     /**
      * 处理个人帐户资料的更新
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUserRequest $request)
@@ -31,14 +31,11 @@ class UserController extends Controller
         $user = Auth::user();
         $input = $request->all();
 
-        if ($request->has('password'))
-        {
+        if ($request->has('password')) {
             $input = $request->all();
             //为密码加密;
             $input['password'] = bcrypt(trim($request->password));
-        }
-        else
-        {
+        } else {
             $input = $request->except('password');
         }
 
@@ -46,14 +43,15 @@ class UserController extends Controller
         if ($file = $request->file('avatar_id')) {
 
             if ($user->avatar) {
-                // return public_path() . $user->avatar->path;
-                $user->avatar->delete();
                 $filePath = public_path() . $user->avatar->path;
-                $filePath = iconv('utf-8', 'gbk', $filePath);
+//                $filePath = iconv('utf-8', 'gbk', $filePath);
+//                return $filePath;
                 unlink($filePath);//删除该用户原有的图片
+                $user->avatar->delete();
             }
             $name = time() . $file->getClientOriginalName();
-            $file->move('images',iconv('utf-8', 'gbk', $name));
+            $file->move('images', $name);
+//            $file->move('images', iconv('utf-8', 'gbk', $name));
             $avatar = Avatar::create(['path' => $name]);
 
             $input['avatar_id'] = $avatar->id;
@@ -70,7 +68,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
