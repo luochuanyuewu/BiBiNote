@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Avatar;
 use App\Http\Requests\UpdateUserRequest;
+use ErrorException;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class UserController extends Controller
 {
@@ -44,14 +46,25 @@ class UserController extends Controller
 
             if ($user->avatar) {
                 $filePath = public_path() . $user->avatar->path;
-//                $filePath = iconv('utf-8', 'gbk', $filePath);
-//                return $filePath;
-                unlink($filePath);//删除该用户原有的图片
+                //如果删除文件失败,则把文件名转码后再删除。
+                try{
+                    unlink($filePath);
+                }catch (ErrorException $e)
+                {
+                    $encodedFilePath = iconv('utf-8', 'gb2312', $filePath);
+                    unlink($encodedFilePath);//删除该用户原有的图片
+                }
                 $user->avatar->delete();
             }
+
             $name = time() . $file->getClientOriginalName();
-            $file->move('images', $name);
-//            $file->move('images', iconv('utf-8', 'gbk', $name));
+            //移动图片,如果无法移动,就把文件名编码后再移动
+            try {
+                $file->move('images', $name);
+            } catch (FileException $e) {
+                $encodedName = iconv('utf-8', 'gb2312', $name);
+                $file->move('images', $encodedName);
+            }
             $avatar = Avatar::create(['path' => $name]);
 
             $input['avatar_id'] = $avatar->id;
