@@ -46,11 +46,14 @@ class UserController extends Controller
         if ($file = $request->file('avatar_id')) {
 
             if ($user->avatar) {
-                unlink(public_path() . $user->avatar->path);//删除该用户原有的图片
+                // return public_path() . $user->avatar->path;
+                $user->avatar->delete();
+                $filePath = public_path() . $user->avatar->path;
+                $filePath = iconv('utf-8', 'gbk', $filePath);
+                unlink($filePath);//删除该用户原有的图片
             }
             $name = time() . $file->getClientOriginalName();
-            $file->move('images', $name);
-
+            $file->move('images',iconv('utf-8', 'gbk', $name));
             $avatar = Avatar::create(['path' => $name]);
 
             $input['avatar_id'] = $avatar->id;
