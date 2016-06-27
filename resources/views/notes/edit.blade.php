@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::submit('更新笔记',['class'=>'btn btn-info btn-block col-sm-6']) !!}
+                            {!! Form::submit('更新哔哔',['class'=>'btn btn-info btn-block col-sm-6']) !!}
                         </div>
 
                         {!! Form::close() !!}

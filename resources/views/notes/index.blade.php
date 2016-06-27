@@ -139,7 +139,7 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::submit('创建笔记',['class'=>'btn btn-info btn-block col-sm-6']) !!}
+                        {!! Form::submit('创建哔哔',['class'=>'btn btn-info btn-block col-sm-6']) !!}
                     </div>
 
                     {!! Form::close() !!}

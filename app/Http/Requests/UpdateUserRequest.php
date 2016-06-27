@@ -39,7 +39,7 @@ class UpdateUserRequest extends Request
             'name.max'=>'你的名字是不是太长了点?',
             'email'=>'你把你的email地址搞空了你怎么登录呢?',
             'avatar_id.image'=>'你得找一张萌萌哒图片当你的头像,而不是其他的什么鬼~',
-            'avatar_id.dimensions'=>"你见过尺寸这么大的头像吗?头像必须在100X100到500X500之间",
+            'avatar_id.dimensions'=>"你的头像不符合标准,头像必须在100X100到500X500之间",
         ];
     }
 }

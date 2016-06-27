@@ -21,7 +21,7 @@
                             前端:html bootstrap(大量使用) jquery(少量使用) font-awesome w3.css<br>
                             后端:Laravel 5.2 <br>
                             运行环境:Php(>=5.5) apache mysql <br>
-                            项目源代码:待更新。。。
+                            项目源代码:<a href="https://github.com/luochuanyuewu/BiBiNote" ><i class="w3-text-red">BiBiNote</i></a>
                         </p>
                         <h4>后记:</h4>
                         <p>我是罗传月武(刘金生)更多关于我请访问->
