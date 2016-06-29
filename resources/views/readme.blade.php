@@ -21,11 +21,18 @@
                             前端:html bootstrap(大量使用) jquery(少量使用) font-awesome w3.css<br>
                             后端:Laravel 5.2 <br>
                             运行环境:Php(>=5.5) apache mysql <br>
-                            项目源代码:<a href="https://github.com/luochuanyuewu/BiBiNote" ><i class="w3-text-red">BiBiNote</i></a>
+                            项目源代码:<a href="https://github.com/luochuanyuewu/BiBiNote" ><span class="w3-text-blue">BiBiNote</span></a>
+                        </p>
+                        <h4>功能特性:</h4>
+                        <p>
+                            1.游客对用户公开分享的内容的查看以及评论<br>
+                            2.用户的登陆与注册以及对用户信息的修改（更新头像，密码，用户名等等）<br>
+                            3.文章的增删改（包括指定文章的分类等等，仅限用户自己的文章）<br>
+                            4.文章分类的创建和删除，以及按指定分类浏览文章（仅限用户自己的文章）<br>
                         </p>
                         <h4>后记:</h4>
                         <p>我是罗传月武(刘金生)更多关于我请访问->
-                            <a href="http://luochuanyuewu.com" ><i class="w3-text-red">luochuanyuewu.com</i></a>
+                            <a href="http://luochuanyuewu.com" ><span class="w3-text-blue">luochuanyuewu.com</span></a>
                         </p>
                     </div>
                 </div>
