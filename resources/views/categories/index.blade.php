@@ -2,6 +2,19 @@
 
 @section('content')
 
+    @if(Session::has('created_category'))
+        <div class="row">
+            <p class="bg-danger">{{session('created_category')}}</p>
+        </div>
+    @elseif(Session::has('existed_category'))
+        <div class="row">
+            <p class="bg-danger">{{session('existed_category')}}</p>
+        </div>
+    @elseif(Session::has('deleted_category'))
+        <div class="row">
+            <p class="bg-danger">{{session('deleted_category')}}</p>
+        </div>
+    @endif
 
     <div class="row ">
         <div class="w3-animate-right">

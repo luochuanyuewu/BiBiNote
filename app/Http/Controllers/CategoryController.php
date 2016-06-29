@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -36,10 +37,13 @@ class CategoryController extends Controller
         foreach ($categories as $category)
         {
             if($category->name == trim($request->name))
+            {
+                Session::flash('existed_category', '已经有这个分类了!');
                 return redirect('category');
+            }
         }
         Category::create(['name'=>$request->name,'user_id'=>Auth::user()->id]);
-
+        Session::flash('created_category', '分类创建成功!');
         return redirect('category');
     }
 
@@ -83,7 +87,7 @@ class CategoryController extends Controller
         //从当前登录的用户的所有分类当中找到要删除的。
         $category = Auth::user()->categories()->where('id',$id)->first();
         $category->delete();
-
+        Session::flash('deleted_category', '分类删除成功!');
         return redirect('category');
 //        return $category;
 
