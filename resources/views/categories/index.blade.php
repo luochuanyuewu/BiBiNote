@@ -35,34 +35,27 @@
 
     </div>
 
-    @if($categories)
-        <div class="row ">
-            <div class="w3-animate-left">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <i class="fa fa-tags fa-fw"></i> 你的所有哔哔分类
-                    </div>
-                    <div class="panel-body">
+
+    <div class="row ">
+        <div class="w3-animate-left">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <i class="fa fa-tags fa-fw"></i> 你的所有哔哔分类
+                </div>
+                <div class="panel-body">
+                    @if($categories)
                         @foreach($categories as $category)
                             <div class="well well-sm"><i class="fa fa-tag "></i> <i
                                         class=" w3-large">{{$category->name}}</i><a
                                         href="{{route('category.destroy',$category->id)}}"
                                         class="pull-right w3-hover-text-red">删除</a></div>
                         @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    @else
-        <div class="row">
-            <div class="w3-animate-left">
-                <div class="panel panel-info">
-                    <div class="panel-body">
+                    @else
                         你暂时还没有创建任何哔哔分类,请在上面创建新的分类吧~
-                    </div>
+                    @endif
                 </div>
             </div>
-
         </div>
-    @endif
+    </div>
+
 @endsection

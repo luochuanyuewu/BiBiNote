@@ -66,9 +66,10 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{route('note.index')}}"><i class="fa fa-sticky-note "></i>哔哔</a></li>
-                <li><a href="{{route('category.index')}}"><i class="fa fa-tag"></i>分类</a></li>
-                <li><a href="{{url('/readme')}}"><i class="fa fa-lightbulb-o"></i>必读</a></li>
+                <li><a href="{{route('note.index')}}"><i class="fa fa-sticky-note "></i>我的哔哔</a></li>
+                <li><a href="{{route('category.index')}}"><i class="fa fa-tag"></i>我的分类</a></li>
+                <li><a href="{{route('user.showall')}}"><i class="fa fa-lightbulb-o"></i>所有用户</a></li>
+                <li><a href="{{url('/readme')}}"><i class="fa fa-lightbulb-o"></i>访客必读</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -83,10 +84,10 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-{{--                            <li><a href="{{ route('user.show',Auth::user()->id)}}"><i class="fa fa-btn fa-user"></i>资料</a></li>--}}
-                            <li><a href="{{ route('user.edit')}}"><i class="fa fa-btn fa-gear"></i>设置</a></li>
+                            <li><a href="{{ route('user.show',Auth::user()->id)}}"><i class="fa fa-btn fa-user"></i>个人资料</a></li>
+                            <li><a href="{{ route('user.edit')}}"><i class="fa fa-btn fa-gear"></i>账号设置</a></li>
 
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>退出</a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>退出登录</a></li>
                         </ul>
                     </li>
                 @endif

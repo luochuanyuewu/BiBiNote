@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="">
+        <div class="w3-animate-top">
             <div class="panel panel-info">
                 <div class="panel-heading">登录</div>
                 <div class="panel-body">

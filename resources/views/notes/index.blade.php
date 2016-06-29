@@ -3,26 +3,26 @@
 @section('content')
     @if(Session::has('deleted_note'))
         <div class="row">
-                <p class="bg-danger">{{session('deleted_note')}}</p>
+            <p class="bg-danger">{{session('deleted_note')}}</p>
         </div>
     @elseif(Session::has('updated_note'))
         <div class="row">
-                <p class="bg-danger">{{session('updated_note')}}</p>
+            <p class="bg-danger">{{session('updated_note')}}</p>
         </div>
     @elseif(Session::has('created_note'))
         <div class="row">
-                <p class="bg-danger">{{session('created_note')}}</p>
+            <p class="bg-danger">{{session('created_note')}}</p>
         </div>
     @elseif(Session::has('updated_user'))
         <div class="row">
-                <p class="bg-danger">{{session('updated_user')}}</p>
+            <p class="bg-danger">{{session('updated_user')}}</p>
         </div>
     @endif
 
 
     <div class="row">
-            {{--载入显示错误的界面--}}
-            @include('includes.form_error')
+        {{--载入显示错误的界面--}}
+        @include('includes.form_error')
     </div>
 
 
@@ -44,11 +44,13 @@
                         @foreach($notes as $note)
                             <li class="{{$invert?'timeline-inverted w3-animate-left':'w3-animate-right'}}">
 
-                                <div class="timeline-badge w3-spin"><img height="50" width="50"
-                                                                         class="img-responsive img-thumbnail img-rounded img-circle"
-                                                                         style="margin: 2px"
-                                                                         src="{{$user->avatar?$user->avatar->path:url('images/defaultavatar.jpg')}}">
-                                    {{--<i class="fa fa-check"></i>--}}
+                                <div class="timeline-badge w3-spin">
+                                    <a href="{{route('user.show',$note->user->id)}}">
+                                        <img height="50" width="50"
+                                             class="img-responsive img-thumbnail img-rounded img-circle"
+                                             style="margin: 2px"
+                                             src="{{$note->user->avatar?$note->user->avatar->path:url('images/defaultavatar.jpg')}}">
+                                    </a>
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
@@ -96,7 +98,7 @@
                         @endforeach
                     </ul>
                 @else
-                    你暂时还没有任何吐槽记录,请点击上按钮来哔哔几句吧~
+                    你暂时还没有任何吐槽记录,请点击上面的按钮来哔哔几句吧~
                 @endif
 
             </div>

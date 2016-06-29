@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="row">
-        <div class="">
+        <div class="w3-animate-top">
             <div class="panel panel-info">
-                <div class="panel-heading">欢迎</div>
+                <div class="panel-heading">欢迎来到《爱哔哔,爱生活》——您生活中的吐槽小助手</div>
 
                 <div class="panel-body">
-                    <p class="small">欢迎来到<span class="w3-text-blue">《爱哔哔,爱生活》</span>。首先这绝对<span class="w3-text-red">不是一个留言板那么简单</span>
+                    <p class="small">首先爱哔哔绝对<span class="w3-text-red">不是一个留言板那么简单</span>
                         你可以点击右上角菜单注册登录，然后可以记录自己的心情，笔记等各种各样的内容并选择是否公开到主页，
-                        你还可以对自己的内容进行分类管理，赶紧登陆探索更多功能吧~ <span class="w3-text-red">游客是只能评论和查看</span>公开分享的哦~
+                        你还可以对自己的内容进行分类管理，还有许多许多其他功能，赶紧登陆探索吧~ <span class="w3-text-red">游客是只能评论和查看</span>公开分享以及<span class="w3-text-red">其他用户信息</span>的哦~
                     </p>
 
                 </div>
@@ -22,7 +22,7 @@
     <div class="row ">
         <div class="">
             <div class="panel panel-info">
-                <div class="panel-heading">
+                <div class="panel-heading ">
                     <i class="fa fa-clock-o fa-fw"></i> 这些人在哔哔
                 </div>
                 <div class="panel-body">
@@ -32,10 +32,13 @@
                             @foreach($notes as $note)
                                 <li class="{{$invert?'timeline-inverted w3-animate-left':'w3-animate-right'}}">
 
-                                    <div class="timeline-badge w3-spin w3-hover-opacity"><img height="50" width="50"
-                                                                                              class="img-responsive img-thumbnail img-rounded img-circle"
-                                                                                              style="margin: 2px"
-                                                                                              src="{{$note->user->avatar?$note->user->avatar->path:url('images/defaultavatar.jpg')}}">
+                                    <div class="timeline-badge w3-spin w3-hover-opacity">
+                                        <a href="{{route('user.show',$note->user->id)}}">
+                                            <img height="50" width="50"
+                                                 class="img-responsive img-thumbnail img-rounded img-circle"
+                                                 style="margin: 2px"
+                                                 src="{{$note->user->avatar?$note->user->avatar->path:url('images/defaultavatar.jpg')}}">
+                                        </a>
                                         {{--<i class="fa fa-check"></i>--}}
                                     </div>
                                     <div class="timeline-panel">

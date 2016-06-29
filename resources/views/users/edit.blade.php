@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Session::has('updated_user'))
+        <div class="row">
+            <p class="bg-danger">{{session('updated_user')}}</p>
+        </div>
+    @endif
+
+
     @if($user)
         <div class="row">
             <div class="w3-animate-zoom">
@@ -21,10 +28,24 @@
                             {!! Form::text('name',null,['class'=>'form-control']) !!}
                         </div>
 
+                        <div class="form-group">
+                            {!! Form::label('sex','性别:') !!}
+                            {!! Form::select('sex',['保密'=>'保密','男'=>'男','女'=>'女'],null,['class'=>'form-control']) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('qq','扣扣号:') !!}
+                            {!! Form::text('qq',null,['class'=>'form-control']) !!}
+                        </div>
 
                         <div class="form-group">
                             {!! Form::label('email','邮箱:') !!}
                             {!! Form::email('email',null,['class'=>'form-control']) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('birthday','生日:') !!}
+                            {!! Form::date('birthday',null,['class'=>'form-control']) !!}
                         </div>
 
                         <div class="form-group">
@@ -42,7 +63,6 @@
                         </div>
 
                         {!! Form::close() !!}
-
 
                     </div>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Avatar;
 use App\Http\Requests\UpdateUserRequest;
+use App\User;
 use ErrorException;
 use Illuminate\Http\Request;
 
@@ -47,10 +48,9 @@ class UserController extends Controller
             if ($user->avatar) {
                 $filePath = public_path() . $user->avatar->path;
                 //如果删除文件失败,则把文件名转码后再删除。
-                try{
+                try {
                     unlink($filePath);
-                }catch (ErrorException $e)
-                {
+                } catch (ErrorException $e) {
                     $encodedFilePath = iconv('utf-8', 'gb2312', $filePath);
                     unlink($encodedFilePath);//删除该用户原有的图片
                 }
@@ -75,7 +75,7 @@ class UserController extends Controller
         $user->update($input);
         //flash类型的Session只会出现一次就失效
         Session::flash('updated_user', '用户更新成功!');
-        return redirect('note');
+        return redirect(route('user.edit',$user->id));
     }
 
     /**
@@ -86,5 +86,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $user = User::find($id);
+        $notes = $user->notes()->where('is_public', 1)->get();
+        if ($user)
+            return view('users.show', compact('user','notes'));
+        else
+            return '你要查看的用户不存在';
     }
 }
