@@ -24,6 +24,8 @@ Route::get('/readme', function () {
 
 Route::get('user/show/{id}',['as'=>'user.show','uses'=>"UserController@show"]);
 
+Route::get('note/show/{id}',['as'=>'note.show','uses'=>"NoteController@show"]);
+
 Route::auth();
 
 

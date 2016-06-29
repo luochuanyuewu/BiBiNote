@@ -29,6 +29,15 @@ class Note extends Model
     {
         return $this->belongsTo('App\Category','category_id','id');
     }
-
+    /**
+     * @return bool
+     */
+    public function isPublic()
+    {
+        if ($this->is_public == 1)
+            return true;
+        else
+            return false;
+    }
 
 }

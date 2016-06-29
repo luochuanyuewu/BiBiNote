@@ -33,6 +33,24 @@ class NoteController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //找到对应的帖子
+        $note = Note::find($id);
+        //检测是否存在以及公开
+        if( !$note or !($note->isPublic()))
+            return '你要查找的内容不存在或没有被公开';
+        else
+            return view('notes.show',compact('note'));
+    }
+
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
