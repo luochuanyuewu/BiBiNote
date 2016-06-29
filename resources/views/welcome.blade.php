@@ -7,7 +7,11 @@
                 <div class="panel-heading">欢迎</div>
 
                 <div class="panel-body">
-                    欢迎来到《爱哔哔,爱生活》。这是您生活中的吐槽小助手,在下面看看别人都哔哔了什么吧~
+                    <p class="small">欢迎来到<span class="w3-text-blue">《爱哔哔,爱生活》</span>。首先这绝对<span class="w3-text-red">不是一个留言板那么简单</span>
+                        你可以点击右上角菜单注册登录，然后可以记录自己的心情，笔记等各种各样的内容并选择是否公开到主页，
+                        你还可以对自己的内容进行分类管理，赶紧登陆探索更多功能吧~ <span class="w3-text-red">游客是只能评论和查看</span>公开分享的哦~
+                    </p>
+
                 </div>
             </div>
         </div>
