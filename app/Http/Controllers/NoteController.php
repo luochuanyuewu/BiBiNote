@@ -17,14 +17,14 @@ class NoteController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * 显示所有帖子
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $user = Auth::user();
-        //返回当前用户的所有笔记,并按照创建时间逆序排列
+        //返回当前用户的所有帖子,并按照创建时间逆序排列
         $notes = $user->notes()->orderBy('created_at', 'desc')->get();
 
         $categories = Auth::user()->categories()->lists('name', 'id')->all();
@@ -33,7 +33,7 @@ class NoteController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 显示特定帖子
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -51,7 +51,7 @@ class NoteController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * 存储新帖子到数据库
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -69,7 +69,7 @@ class NoteController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 显示特定帖子的编辑界面
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -83,7 +83,7 @@ class NoteController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 更新特定帖子
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
@@ -100,7 +100,7 @@ class NoteController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 删除特定帖子
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -117,7 +117,11 @@ class NoteController extends Controller
 
     }
 
-
+    /**
+     * 设置特定帖子的公开性
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|string
+     */
     public function setPublic($id)
     {
         //找到对应的note
