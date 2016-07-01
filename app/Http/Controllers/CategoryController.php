@@ -13,7 +13,7 @@ class CategoryController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * 显示所有分类
      *
      * @return \Illuminate\Http\Response
      */
@@ -26,7 +26,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     *存储一个新的分类
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -48,7 +48,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 按特定分类显示所有帖子
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -67,7 +67,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 删除某个分类
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
