@@ -15,6 +15,10 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class UserController extends Controller
 {
+    /**
+     * 显示编辑用户的界面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit()
     {
         //找到对应的用户并传入profiles.edit视图
@@ -79,7 +83,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 显示特定用户
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
