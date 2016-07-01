@@ -16,7 +16,7 @@
         }
 
         .fa-btn {
-            margin-right: 6px;
+            /*margin-right: 6px;*/
         }
 
         a{

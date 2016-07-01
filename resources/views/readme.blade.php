@@ -3,7 +3,7 @@
 @section('content')
         <div class="row w3-animate-zoom">
                 <div class="panel panel-info">
-                    <div class="panel-heading">说明</div>
+                    <div class="panel-heading">系统介绍和说明</div>
 
                     <div class="panel-body">
                         <h4>前言:</h4>
@@ -31,9 +31,12 @@
                             4.文章分类的创建和删除，以及按指定分类浏览文章（仅限用户自己的文章）<br>
                             5.用户列表以及单用户的资料和文章查询<br>
                         </p>
-                        <h4>后记:</h4>
-                        <p>我是罗传月武(刘金生)更多关于我请访问->
-                            <a href="http://luochuanyuewu.com" ><span class="w3-text-blue">luochuanyuewu.com</span></a>
+                        <h4>开发者信息:</h4>
+                        <p>
+                            <img width="80" height="100" src="{{url('/images/avatar.jpg')}}" alt="">
+                        </p>
+                        <p> <span class="w3-text-red"> 重庆师范大学计信学院14级计师刘金生版权所有，联系电话：15330341148，QQ：956662361 更多关于我请访问->
+                            <a href="http://luochuanyuewu.com" ><span class="w3-text-blue">luochuanyuewu.com</span></a></span>
                         </p>
                     </div>
                 </div>
