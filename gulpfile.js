@@ -14,21 +14,17 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss');
     mix.styles([
-        'bootstrap.css',
-        'bootstrap-theme.css',
-        'font-awesome.css',
-        'metisMenu.css',
-        'sb-admin-2.css',
+        'bootstrap.min.css',
+        'bootstrap-theme.min.css',
+        'font-awesome.min.css',
         'timeline.css',
         'w3.css'
 
     ], './public/css/libs.css');
 
     mix.scripts([
-        'jquery.js',
-        'bootstrap.js',
-        'metisMenu.js',
-        'sb-admin-2'
+        'jquery.min.js',
+        'bootstrap.min.js',
 
     ], './public/js/libs.js')
 });
