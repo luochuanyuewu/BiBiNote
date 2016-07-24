@@ -26,11 +26,11 @@ BiBiNote是一个类似微博的帖子记录分享网站。
 
 4.将.env.example命名为.env并在此文件中配置好数据库名以及数据库用户名和密码.
 
-5.数据库迁移,执行php artisan migrate即可将所有数据库迁移生成到你制定对数据库中.
+5.数据库迁移,执行php artisan migrate即可将所有数据表迁移生成到你指定的数据库中.
 
 6.在apache里新建一个虚拟主机,文档根目录指向工程根目录下的public目录.
 
-7.在工程根目录执行php artisan key:generate 生成新打工程唯一key.
+7.在工程根目录执行php artisan key:generate 生成工程唯一key.
 
 8.然后你就有了自己的BiBiNote系统了.
 
