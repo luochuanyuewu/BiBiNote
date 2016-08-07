@@ -68,7 +68,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{route('note.index')}}"><i class="fa fa-sticky-note "></i>我的哔哔</a></li>
                 <li><a href="{{route('category.index')}}"><i class="fa fa-tag"></i>我的分类</a></li>
-                <li><a href="{{route('user.showall')}}"><i class="fa fa-lightbulb-o"></i>所有用户</a></li>
+                <li><a href="{{route('user.showall')}}"><i class="fa fa-users"></i>所有用户</a></li>
                 <li><a href="{{url('/readme')}}"><i class="fa fa-lightbulb-o"></i>访客必读</a></li>
             </ul>
 
